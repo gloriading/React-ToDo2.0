@@ -37,7 +37,7 @@ export default class TaskList extends Component {
                 );
 
     return(
-        <div className="TaskList">
+        <div className="task-list">
           <div className="todo">
             <h2>To Do</h2>
             {todolist}

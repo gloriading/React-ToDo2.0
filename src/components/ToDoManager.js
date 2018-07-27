@@ -1,33 +1,52 @@
 import React, {Component} from 'react';
 import TaskForm from './TaskForm';
 import TaskList from './TaskList';
+import uuid from 'uuid';
+
+
+
 
 export default class ToDoManager extends Component {
   constructor(props){
     super(props);
+
     this.state={
       allTasks: [
-        {id: 1, status: 'todo', content: 'apartment'},
-        {id: 2, status: 'doing', content: 'doctor'},
-        {id: 3, status: 'done', content: 'movies'},
-        {id: 4, status: 'todo', content: 'lunch buffet'},
-        {id: 5, status: 'done', content: 'morning job'},
-        {id: 6, status: 'doing', content: 'apple'},
-        {id: 7, status: 'todo', content: 'banana'},
-        {id: 8, status: 'doing', content: 'music'}
-      ],
-      currentId: lastId
+        {id: uuid.v4(), status: 'todo', content: 'apartment'},
+        {id: uuid.v4(), status: 'doing', content: 'doctor'},
+        {id: uuid.v4(), status: 'done', content: 'movies'},
+        {id: uuid.v4(), status: 'todo', content: 'lunch buffet'},
+        {id: uuid.v4(), status: 'done', content: 'morning job'},
+        {id: uuid.v4(), status: 'doing', content: 'apple'},
+        {id: uuid.v4(), status: 'todo', content: 'banana'},
+        {id: uuid.v4(), status: 'doing', content: 'music'}
+      ]
     }
 
-    let lastIndex = this.state.allTasks.length - 1;
-    let lastId = this.state.allTasks[lastIndex].id;
-    console.log(lastId);
+    this.updateTodo = this.updateTodo.bind(this);
   }
+
+  updateTodo(taskReceied){
+    let newTaskObj = {
+      id: uuid.v4(),
+      status: 'todo',
+      content: taskReceied
+    }
+    this.setState({
+      allTasks: [...this.state.allTasks, newTaskObj]
+    });
+
+  }
+
   render(){
     return(
         <div className="ToDoManager">
-          ToDoManager
-          <TaskForm />
+          <div className="header">
+            <h1>
+              <span className="whiteText">React</span> To-Do <span className="whiteText">2.0</span>
+            </h1>
+          </div>
+          <TaskForm updateTodo={this.updateTodo} />
           <TaskList allTodos={this.state.allTasks} />
         </div>
     );
