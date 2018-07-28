@@ -24,6 +24,7 @@ export default class ToDoManager extends Component {
     }
 
     this.updateTodo = this.updateTodo.bind(this);
+    this.changeList = this.changeList.bind(this);
   }
 
   updateTodo(taskReceied){
@@ -38,6 +39,13 @@ export default class ToDoManager extends Component {
 
   }
 
+  changeList(toBeChangedId,changeTo){
+    let allTasks = [...this.state.allTasks];
+    let index = allTasks.findIndex( (task) => task.id === toBeChangedId );
+    allTasks[index].status = changeTo;
+    this.setState({ allTasks });
+  }
+
   render(){
     return(
         <div className="ToDoManager">
@@ -47,7 +55,7 @@ export default class ToDoManager extends Component {
             </h1>
           </div>
           <TaskForm updateTodo={this.updateTodo} />
-          <TaskList allTodos={this.state.allTasks} />
+          <TaskList allTodos={this.state.allTasks} handleListChange={this.changeList}/>
         </div>
     );
   }

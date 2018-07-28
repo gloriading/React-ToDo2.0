@@ -2,37 +2,48 @@ import React, {Component} from 'react';
 import Task from './Task';
 
 export default class TaskList extends Component {
+  constructor(props){
+    super(props);
+    this.handleListChange = this.handleListChange.bind(this);
+  }
+
+  handleListChange(toBeChanged,changeTo){
+    this.props.handleListChange(toBeChanged, changeTo);
+  }
 
   render(){
     let todolist, doinglist, donelist;
     todolist = this.props.allTodos
-              .filter( todoObj => todoObj.status === "todo" )
-              .map( todoObj =>
+              .filter( obj => obj.status === "todo" )
+              .map( obj =>
                      <Task
-                        id={todoObj.id}
-                        key={`todokey-${todoObj.id}`}
-                        content={todoObj.content}
-                        status={todoObj.status}
+                        id={obj.id}
+                        key={`todokey-${obj.id}`}
+                        content={obj.content}
+                        status={obj.status}
+                        handleListChange={this.handleListChange}
                       />
                 );
     doinglist = this.props.allTodos
-              .filter( doingObj => doingObj.status === "doing" )
-              .map( doingObj =>
+              .filter( obj => obj.status === "doing" )
+              .map( obj =>
                      <Task
-                        id={doingObj.id}
-                        key={`doingkey-${doingObj.id}`}
-                        content={doingObj.content}
-                        status={doingObj.status}
+                        id={obj.id}
+                        key={`doingkey-${obj.id}`}
+                        content={obj.content}
+                        status={obj.status}
+                        handleListChange={this.handleListChange}
                       />
                 );
     donelist = this.props.allTodos
-              .filter( dontObj => dontObj.status === "done" )
-              .map( dontObj =>
+              .filter( obj => obj.status === "done" )
+              .map( obj =>
                      <Task
-                        id={dontObj.id}
-                        key={`donekey-${dontObj.id}`}
-                        content={dontObj.content}
-                        status={dontObj.status}
+                        id={obj.id}
+                        key={`donekey-${obj.id}`}
+                        content={obj.content}
+                        status={obj.status}
+                        handleListChange={this.handleListChange}
                       />
                 );
 

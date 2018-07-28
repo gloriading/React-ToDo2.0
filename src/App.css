@@ -76,15 +76,23 @@ body {
 /* task-container */
 .task-container {
   border: 1px solid rgba(0,0,0,0.4);
-  padding: 10px;
   margin-bottom: 5px;
-}
-.task-container:nth-of-type(even){
-  /* background-color: rgba(162, 155, 254, 0.6); */
+  display: flex;
+  justify-content: space-between;
 }
 .task-container p {
-  /* display: flex;
-  justify-content: space-between; */
+  margin: 10px;
+}
+.status-btn {
+  font-size: 12px;
+  display: inline-block;
+  padding: 10px 5px;
+  letter-spacing: 0.5px;
+  transition: 0.2s;
+}
+.status-btn:hover {
+  color: #6c5ce7;
+  cursor: pointer;
 }
 .delete-btn {
   font-size: 12px;
@@ -94,6 +102,14 @@ body {
   transform: translateY(8%);
   cursor: pointer;
 }
+
+.todo .status-btn:first-of-type,
+.doing .status-btn:nth-of-type(2),
+.done .status-btn:last-of-type
+ {
+  display: none;
+}
+
 /* footer */
 .logo {
   position: fixed;
