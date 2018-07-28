@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Capitalize} from './Capitalize';
 
 export default class Task extends Component {
   constructor(props){
@@ -12,10 +13,11 @@ export default class Task extends Component {
   }
 
   render(){
+    let taskContent = Capitalize(this.props.content);
 
     return(
         <div className="task-container">
-          <p>{this.props.content}</p>
+          <p>{taskContent}</p>
           <div className="task-status-container">
             <span
               className="status-btn"
