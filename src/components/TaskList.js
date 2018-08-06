@@ -22,7 +22,7 @@ export default class TaskList extends Component {
               .map( obj =>
                      <Task
                         id={obj.id}
-                        key={`todokey-${obj.id}`}
+                        key={obj.id}
                         content={obj.content}
                         status={obj.status}
                         handleListChange={this.handleListChange}
@@ -33,7 +33,7 @@ export default class TaskList extends Component {
               .map( obj =>
                      <Task
                         id={obj.id}
-                        key={`doingkey-${obj.id}`}
+                        key={obj.id}
                         content={obj.content}
                         status={obj.status}
                         handleListChange={this.handleListChange}
@@ -44,7 +44,7 @@ export default class TaskList extends Component {
               .map( obj =>
                      <Task
                         id={obj.id}
-                        key={`donekey-${obj.id}`}
+                        key={obj.id}
                         content={obj.content}
                         status={obj.status}
                         handleListChange={this.handleListChange}

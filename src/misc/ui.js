@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
 const StatusBtn = props => (
@@ -9,7 +9,6 @@ const StatusBtn = props => (
     >
     {props.children}
   </span>
-)
-
+);
 
 export {StatusBtn};
