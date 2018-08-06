@@ -11,20 +11,26 @@ export default class ToDoManager extends Component {
     super(props);
 
     this.state={
-      allTasks: [
-        {id: uuid.v4(), status: 'todo', content: 'apartment'},
-        {id: uuid.v4(), status: 'doing', content: 'doctor'},
-        {id: uuid.v4(), status: 'done', content: 'movies'},
-        {id: uuid.v4(), status: 'todo', content: 'lunch buffet'},
-        {id: uuid.v4(), status: 'done', content: 'morning job'},
-        {id: uuid.v4(), status: 'doing', content: 'apple'},
-        {id: uuid.v4(), status: 'todo', content: 'banana'},
-        {id: uuid.v4(), status: 'doing', content: 'music'}
-      ]
+      allTasks: []
     }
 
     this.updateTodo = this.updateTodo.bind(this);
     this.changeList = this.changeList.bind(this);
+  }
+
+  componentDidMount(){
+      this.setState({
+        allTasks: [
+          {id: uuid.v4(), status: 'todo', content: 'apartment'},
+          {id: uuid.v4(), status: 'doing', content: 'doctor'},
+          {id: uuid.v4(), status: 'done', content: 'movies'},
+          {id: uuid.v4(), status: 'todo', content: 'lunch buffet'},
+          {id: uuid.v4(), status: 'done', content: 'morning job'},
+          {id: uuid.v4(), status: 'doing', content: 'apple'},
+          {id: uuid.v4(), status: 'todo', content: 'banana'},
+          {id: uuid.v4(), status: 'doing', content: 'music'}
+        ]
+      });
   }
 
   updateTodo(taskReceied){

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Capitalize} from './Capitalize';
+import {StatusBtn} from '../misc/ui';
 
 export default class Task extends Component {
   constructor(props){
@@ -19,27 +20,15 @@ export default class Task extends Component {
         <div className="task-container">
           <p>{taskContent}</p>
           <div className="task-status-container">
-            <span
-              className="status-btn"
-              onClick={this.handleClick}
-              id="todo"
-              >
+            <StatusBtn onClick={this.handleClick} status="todo">
               todo
-            </span>
-            <span
-              className="status-btn"
-              onClick={this.handleClick}
-              id="doing"
-              >
+            </StatusBtn>
+            <StatusBtn onClick={this.handleClick} status="doing">
               doing
-            </span>
-            <span
-              className="status-btn"
-              onClick={this.handleClick}
-              id="done"
-              >
+            </StatusBtn>
+            <StatusBtn onClick={this.handleClick} status="done">
               done
-            </span>
+            </StatusBtn>
           </div>
 
         </div>
