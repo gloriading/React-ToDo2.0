@@ -4,3 +4,10 @@
 * Instead of deleting a specific todo, I can update the status of a todo: from todo to doing, doing to done, etc.
 
 ## ![Alt text](src/misc/react-todo2.png?raw=true "React - todo")  
+
+
+## Instructions:
+
+* git clone (this project)
+* npm install
+* npm start
